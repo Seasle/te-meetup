@@ -12,5 +12,6 @@
   "settings": {
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
+    "cSpell.words": ["clsx"]
   }
 }

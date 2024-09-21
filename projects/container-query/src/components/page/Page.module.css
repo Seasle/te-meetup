@@ -1,0 +1,9 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+}
+
+.pane {
+  height: 100%;
+  display: grid;
+}

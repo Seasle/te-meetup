@@ -1,0 +1,163 @@
+.wrapper {
+  --columns: 3;
+
+  container-name: content-a;
+  container-type: inline-size;
+}
+
+.content {
+  --color-new: color-mix(in srgb, #00a4ba 80%, #ffffff);
+  --color-in-progress: color-mix(in srgb, #ff991f 80%, #ffffff);
+  --color-review: color-mix(in srgb, #f14d56 80%, #ffffff);
+  --color-done: color-mix(in srgb, #97ba1e 80%, #ffffff);
+
+  --count-total: calc(
+    var(--count-new) + var(--count-in-progress) + var(--count-review) + var(--count-done)
+  );
+  --count-new: 20;
+  --count-in-progress: 8;
+  --count-review: 5;
+  --count-done: 3;
+
+  gap: 24px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  grid-auto-rows: max-content;
+}
+
+.panel {
+  --padding: 24px;
+
+  padding: var(--padding);
+  border: 1px solid #c9c9c9;
+  border-radius: 8px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-auto-rows: max-content;
+  justify-items: center;
+  align-content: center;
+}
+
+.title {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.indicator {
+  font-size: 48px;
+}
+
+.chart {
+  --step: calc(360deg / var(--count-total));
+  --p-new: calc(var(--step) * var(--count-new));
+  --p-in-progress: calc(var(--step) * var(--count-in-progress));
+  --p-review: calc(var(--step) * var(--count-review));
+  --p-done: calc(var(--step) * var(--count-done));
+
+  position: relative;
+  width: 100%;
+  max-width: 240px;
+  border-radius: 50%;
+  margin: 24px 0;
+  aspect-ratio: 1 / 1;
+  background-image: conic-gradient(
+    /* New */ var(--color-new) 0deg,
+    var(--color-new) calc(var(--p-new) - 0.5deg),
+    /* In Progress */ var(--color-in-progress) calc(var(--p-new) + 0.5deg),
+    var(--color-in-progress) calc(var(--p-new) + var(--p-in-progress) - 0.5deg),
+    /* Review */ var(--color-review) calc(var(--p-new) + var(--p-in-progress) + 0.5deg),
+    var(--color-review) calc(var(--p-new) + var(--p-in-progress) + var(--p-review) - 0.5deg),
+    /* Done */ var(--color-done)
+      calc(var(--p-new) + var(--p-in-progress) + var(--p-review) + 0.5deg),
+    var(--color-done) calc(var(--p-new) + var(--p-in-progress) + var(--p-review) + var(--p-done))
+  );
+
+  &::after {
+    position: absolute;
+    border-radius: 50%;
+    inset: 20px;
+    background-color: #ffffff;
+    content: '';
+  }
+}
+
+.header {
+  grid-column: span var(--columns);
+  font-size: 32px;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.total {
+  grid-row: span 2;
+}
+
+.new,
+.inProgress,
+.review,
+.done {
+  --line-width: 8px;
+
+  position: relative;
+  padding-left: calc(var(--padding) + var(--line-width) + 8px);
+
+  &::before {
+    top: var(--padding);
+    bottom: var(--padding);
+    left: var(--padding);
+    position: absolute;
+    width: var(--line-width);
+    border-radius: calc(var(--line-width) / 2);
+    background-color: var(--color);
+    content: '';
+  }
+}
+
+.new {
+  --color: var(--color-new);
+}
+
+.inProgress {
+  --color: var(--color-in-progress);
+}
+
+.review {
+  --color: var(--color-review);
+}
+
+.done {
+  --color: var(--color-done);
+}
+
+@container content-a (max-width: 540px) {
+  .content {
+    --columns: 2;
+  }
+
+  .total {
+    grid-row: span 4;
+  }
+}
+
+@container content-a (max-width: 400px) {
+  .content {
+    --columns: 1;
+  }
+
+  .chart {
+    display: none;
+  }
+}

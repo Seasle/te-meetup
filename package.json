@@ -1,9 +1,10 @@
 {
-  "name": "meetup",
+  "name": "@te-meetup/meetup",
   "version": "0.0.0",
   "private": true,
   "packageManager": "yarn@4.5.0",
   "workspaces": [
+    "packages/*",
     "projects/*"
   ]
 }

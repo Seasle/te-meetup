@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "name": "Container Query",
+      "path": "./projects/container-query"
+    },
+    {
+      "name": "Shared",
+      "path": "./packages"
+    }
+  ],
+  "settings": {
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+  }
+}

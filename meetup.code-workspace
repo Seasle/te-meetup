@@ -5,6 +5,10 @@
       "path": "./projects/container-query"
     },
     {
+      "name": "Color Mix",
+      "path": "./projects/color-mix"
+    },
+    {
       "name": "Shared",
       "path": "./packages"
     }

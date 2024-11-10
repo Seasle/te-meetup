@@ -9,6 +9,10 @@
       "path": "./projects/color-mix"
     },
     {
+      "name": "Validation Pseudo-Class",
+      "path": "./projects/validation-pseudo-class"
+    },
+    {
       "name": "Shared",
       "path": "./packages"
     }

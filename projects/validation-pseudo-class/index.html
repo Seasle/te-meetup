@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Validation Pseudo-Class</title>
+  </head>
+  <body>
+    <div id="app">
+      <form class="form" action="#">
+        <fieldset class="form__section form__section--default-pseudo">
+          <legend class="form__section-title">:invalid & :valid</legend>
+
+          <div class="control">
+            <div class="control__inner">
+              <label class="control__label" for="f1_name">Name</label>
+              <input class="control__field" type="text" id="f1_name">
+              <span class="control__status-icon control__status-icon--ok" data-feather="check"></span>
+              <span class="control__status-icon control__status-icon--error" data-feather="alert-triangle"></span>
+            </div>
+          </div>
+
+          <div class="control">
+            <div class="control__inner">
+              <label class="control__label" for="f1_email">Email</label>
+              <input class="control__field" type="email" id="f1_email">
+              <span class="control__status-icon control__status-icon--ok" data-feather="check"></span>
+              <span class="control__status-icon control__status-icon--error" data-feather="alert-triangle"></span>
+            </div>
+          </div>
+
+          <div class="control">
+            <div class="control__inner">
+              <label class="control__label" for="f1_password">Password</label>
+              <input class="control__field" type="password" id="f1_password">
+              <span class="control__status-icon control__status-icon--ok" data-feather="check"></span>
+              <span class="control__status-icon control__status-icon--error" data-feather="alert-triangle"></span>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form__section form__section--user-pseudo">
+          <legend class="form__section-title">:user-invalid & :user-valid</legend>
+
+        <div class="control">
+          <div class="control__inner">
+            <label class="control__label" for="f2_name">Name</label>
+            <input class="control__field" type="text" id="f2_name">
+            <span class="control__status-icon control__status-icon--ok" data-feather="check"></span>
+            <span class="control__status-icon control__status-icon--error" data-feather="alert-triangle"></span>
+          </div>
+        </div>
+
+        <div class="control">
+          <div class="control__inner">
+            <label class="control__label" for="f2_email">Email</label>
+            <input class="control__field" type="email" id="f2_email">
+            <span class="control__status-icon control__status-icon--ok" data-feather="check"></span>
+            <span class="control__status-icon control__status-icon--error" data-feather="alert-triangle"></span>
+          </div>
+        </div>
+
+        <div class="control">
+          <div class="control__inner">
+            <label class="control__label" for="f2_password">Password</label>
+            <input class="control__field" type="password" id="f2_password">
+            <span class="control__status-icon control__status-icon--ok" data-feather="check"></span>
+            <span class="control__status-icon control__status-icon--error" data-feather="alert-triangle"></span>
+          </div>
+        </div>
+        </fieldset>
+
+        <fieldset class="form__section form__section--default-pseudo">
+          <legend class="form__section-title">:invalid & :valid вместе с required</legend>
+
+          <div class="control">
+            <div class="control__inner">
+              <label class="control__label" for="f3_name">Name</label>
+              <input class="control__field" type="text" id="f3_name" value="Иван Иванов" required>
+              <span class="control__status-icon control__status-icon--ok" data-feather="check"></span>
+              <span class="control__status-icon control__status-icon--error" data-feather="alert-triangle"></span>
+            </div>
+          </div>
+
+          <div class="control">
+            <div class="control__inner">
+              <label class="control__label" for="f3_email">Email</label>
+              <input class="control__field" type="email" id="f3_email" value="i.ivanov@example.ru" required>
+              <span class="control__status-icon control__status-icon--ok" data-feather="check"></span>
+              <span class="control__status-icon control__status-icon--error" data-feather="alert-triangle"></span>
+            </div>
+          </div>
+
+          <div class="control">
+            <div class="control__inner">
+              <label class="control__label" for="f3_password">Password</label>
+              <input class="control__field" type="password" id="f3_password" minlength="8" required>
+              <span class="control__status-icon control__status-icon--ok" data-feather="check"></span>
+              <span class="control__status-icon control__status-icon--error" data-feather="alert-triangle"></span>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form__section form__section--user-pseudo">
+          <legend class="form__section-title">:user-invalid & :user-valid вместе с required</legend>
+
+          <div class="control">
+            <div class="control__inner">
+              <label class="control__label" for="f4_name">Name</label>
+              <input class="control__field" type="text" id="f4_name" value="Иван Иванов" required>
+              <span class="control__status-icon control__status-icon--ok" data-feather="check"></span>
+              <span class="control__status-icon control__status-icon--error" data-feather="alert-triangle"></span>
+            </div>
+          </div>
+
+          <div class="control">
+            <div class="control__inner">
+              <label class="control__label" for="f4_email">Email</label>
+              <input class="control__field" type="email" id="f4_email" value="i.ivanov@example.ru" required>
+              <span class="control__status-icon control__status-icon--ok" data-feather="check"></span>
+              <span class="control__status-icon control__status-icon--error" data-feather="alert-triangle"></span>
+            </div>
+          </div>
+
+          <div class="control">
+            <div class="control__inner">
+              <label class="control__label" for="f4_password">Password</label>
+              <input class="control__field" type="password" id="f4_password" minlength="8" required>
+              <span class="control__status-icon control__status-icon--ok" data-feather="check"></span>
+              <span class="control__status-icon control__status-icon--error" data-feather="alert-triangle"></span>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

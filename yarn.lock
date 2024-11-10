@@ -683,6 +683,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@te-meetup/validation-pseudo-class@workspace:projects/validation-pseudo-class":
+  version: 0.0.0-use.local
+  resolution: "@te-meetup/validation-pseudo-class@workspace:projects/validation-pseudo-class"
+  dependencies:
+    "@fontsource/inter": "npm:^5.1.0"
+    "@te-meetup/eslint-config": "workspace:^"
+    "@types/feather-icons": "npm:^4"
+    eslint: "npm:^9.14.0"
+    feather-icons: "npm:^4.29.2"
+    typescript: "npm:^5.6.3"
+    typescript-eslint: "npm:^8.13.0"
+    vite: "npm:^5.4.10"
+  languageName: unknown
+  linkType: soft
+
 "@types/estree@npm:1.0.5":
   version: 1.0.5
   resolution: "@types/estree@npm:1.0.5"

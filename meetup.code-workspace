@@ -13,6 +13,10 @@
       "path": "./projects/validation-pseudo-class"
     },
     {
+      "name": "CSS Anchor",
+      "path": "./projects/css-anchor"
+    },
+    {
       "name": "Shared",
       "path": "./packages"
     }

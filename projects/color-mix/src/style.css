@@ -1,4 +1,8 @@
 :root {
+  --success-color: #7aa500;
+  --warning-color: #e07d00;
+  --error-color: #e8445c;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
 
@@ -22,7 +26,6 @@ body {
 #app {
   max-width: 800px;
   width: 100%;
-  max-height: 400px;
   height: 100%;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -49,6 +52,94 @@ body {
   }
 }
 
+.code-example {
+  padding: 32px;
+  grid-column: 1 / -1;
+  background-color: #ffffff;
+
+  pre {
+    margin: 0;
+  }
+
+  :root:has(.theme-holder--light .status:hover) & {
+    .variable-declaration,
+    .variable-usage {
+      --background-color: #f6f7fb;
+      --foreground-color: #111111;
+    }
+  }
+
+  :root:has(.theme-holder--dark .status:hover) & {
+    .variable-declaration,
+    .variable-usage {
+      --background-color: #222222;
+      --foreground-color: #fafafa;
+    }
+  }
+
+  :root:has(.theme-holder .status--success:hover) & {
+    .variable-declaration,
+    .variable-usage {
+      --hover-color: var(--success-color);
+    }
+  }
+
+  :root:has(.theme-holder .status--warning:hover) & {
+    .variable-declaration,
+    .variable-usage {
+      --hover-color: var(--warning-color);
+    }
+  }
+
+  :root:has(.theme-holder .status--error:hover) & {
+    .variable-declaration,
+    .variable-usage {
+      --hover-color: var(--error-color);
+    }
+  }
+
+  .variable-declaration,
+  .variable-usage {
+    &[data-name='base-color'] {
+      --color: var(--hover-color);
+    }
+
+    &[data-name='fill-color'] {
+      --color: color-mix(in srgb, var(--hover-color) 20%, var(--background-color));
+    }
+
+    &[data-name='border-color'] {
+      --color: color-mix(in srgb, var(--hover-color) 75%, var(--background-color));
+    }
+
+    &[data-name='text-color'] {
+      --color: color-mix(in srgb, var(--hover-color) 90%, var(--background-color));
+    }
+
+    &[data-name='background-color'] {
+      --color: var(--background-color);
+    }
+  }
+
+  .variable-declaration {
+    background-color: var(--color);
+    color: var(--foreground-color) !important;
+  }
+
+  .variable-usage {
+    &::before {
+      width: 1.125cap;
+      height: 1.125cap;
+      margin-inline: 0.25cap;
+      border: 1px solid #505f79;
+      display: inline-block;
+      vertical-align: bottom;
+      background-color: var(--color);
+      content: '';
+    }
+  }
+}
+
 .status {
   --base-color: currentColor;
 
@@ -69,15 +160,15 @@ body {
   color: var(--text-color);
 
   &.status--success {
-    --base-color: #7aa500;
+    --base-color: var(--success-color);
   }
 
   &.status--warning {
-    --base-color: #e07d00;
+    --base-color: var(--warning-color);
   }
 
   &.status--error {
-    --base-color: #e8445c;
+    --base-color: var(--error-color);
   }
 
   .status__text {

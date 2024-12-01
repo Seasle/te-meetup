@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@fontsource/inter": "^5.1.0",
-    "feather-icons": "^4.29.2"
+    "feather-icons": "^4.29.2",
+    "shiki": "^1.24.0"
   },
   "devDependencies": {
     "@te-meetup/eslint-config": "workspace:^",

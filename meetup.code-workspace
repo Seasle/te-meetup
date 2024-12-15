@@ -13,6 +13,10 @@
       "path": "./projects/validation-pseudo-class"
     },
     {
+      "name": "CSS Scope",
+      "path": "./projects/css-scope"
+    },
+    {
       "name": "CSS Anchor",
       "path": "./projects/css-anchor"
     },

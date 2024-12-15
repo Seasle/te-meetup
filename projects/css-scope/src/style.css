@@ -1,0 +1,140 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  background-color: #eceff5;
+}
+
+#app {
+  min-height: 100vh;
+  padding: 96px 48px;
+  gap: 48px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+
+  #card-1 {
+    order: 1;
+
+    :has(&:hover, &:focus):not(:has(#card-2:focus, #card-3:focus)) #code-1 {
+      display: flex;
+    }
+  }
+
+  #card-2 {
+    order: 3;
+
+    :has(&:hover, &:focus):not(:has(#card-1:focus, #card-3:focus)) #code-2 {
+      display: flex;
+    }
+  }
+
+  #card-3 {
+    order: 5;
+
+    :has(&:hover, &:focus):not(:has(#card-1:focus, #card-2:focus)) #code-3 {
+      display: flex;
+    }
+  }
+
+  #code-1 {
+    display: none;
+    order: 2;
+  }
+
+  #code-2 {
+    display: none;
+    order: 4;
+  }
+
+  #code-3 {
+    display: none;
+    order: 6;
+  }
+}
+
+.cards {
+  gap: 48px;
+  display: grid;
+  grid-template-columns: repeat(3, 240px);
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 1024px) {
+    display: contents;
+  }
+}
+
+.card {
+  padding: 20px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 2px rgba(0 0 0 / 15%), 0 2px 4px rgba(0 0 0 / 10%), 0 4px 8px rgba(0 0 0 / 5%);
+}
+
+.card__text {
+  margin: 0;
+  padding: 4px;
+  border-radius: 4px;
+  letter-spacing: 0.15px;
+  background-color: rgba(from #d4e3ac r g b / 50%);
+}
+
+@scope (#card-3) {
+  .card__text {
+    background-color: rgba(from #fcd3a9 r g b / 50%);
+  }
+}
+
+.code-example {
+  padding: 20px;
+  gap: 20px;
+  border-radius: 6px;
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  box-shadow: 0 1px 2px rgba(0 0 0 / 15%), 0 2px 4px rgba(0 0 0 / 10%), 0 4px 8px rgba(0 0 0 / 5%);
+
+  .code-example__block {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 2px 4px;
+      border-radius: 6px;
+      font-size: 14px;
+      text-transform: uppercase;
+      background-color: #505f79;
+      color: #ffffff;
+      content: attr(data-lang);
+    }
+  }
+
+  pre {
+    margin: 0;
+  }
+
+  .color-function {
+    &::before {
+      width: 1.125cap;
+      height: 1.125cap;
+      margin-inline: 0.25cap;
+      border: 1px solid #505f79;
+      display: inline-block;
+      vertical-align: bottom;
+      background-color: var(--color);
+      content: '';
+    }
+  }
+}

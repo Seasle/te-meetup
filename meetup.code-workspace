@@ -21,6 +21,10 @@
       "path": "./projects/css-anchor"
     },
     {
+      "name": "Gateway",
+      "path": "./projects/gateway"
+    },
+    {
       "name": "Shared",
       "path": "./packages"
     }

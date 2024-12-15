@@ -9,7 +9,6 @@ directories=(
 )
 default_prefix=""
 prefix="${prefix:-$default_prefix}"
-base="${prefix}/"
 
 cd projects
 rm -rf gateway/public/demo
@@ -23,7 +22,11 @@ for dir in "${directories[@]}"; do
     cd "$dir" || exit 1
 
     echo "Running script: yarn build"
-    yarn build --base "${base}demo/${dir}" -l silent
+    if [ "$prefix" == "" ]; then
+      yarn build --base="demo/${dir}" -l silent
+    else
+      yarn build --base="${prefix}/demo/${dir}" -l silent
+    fi
 
     echo "Copying files to gateway"
     cp -r dist $original_directory/gateway/public/demo/$dir
@@ -38,5 +41,9 @@ echo "Completed processing all directories."
 
 echo "Start building gateway"
 cd gateway
-yarn build --base $base -l silent
+if [ "$prefix" == "" ]; then
+  yarn build -l silent
+else
+  yarn build --base="$prefix" -l silent
+fi
 echo "Completed app build."

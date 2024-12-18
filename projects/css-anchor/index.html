@@ -4,10 +4,177 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>CSS Anchor</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <div class="tooltip-demo">
+        <div class="buttons-column">
+          <div class="row-wrapper">
+            <div class="button-wrapper">
+              <button class="button" type="button" style="--anchor-name: --btn-top">
+                Сверху
+              </button>
+            </div>
+
+            <div class="code-example flow">
+              <div class="code-example__block" data-lang="html">
+                <pre>
+&lt;button class="button" style="--anchor-name: --btn-top"&gt;
+  Сверху
+&lt;/button&gt;
+
+&lt;div class="tooltip-hint tooltip-hint-top" style="--anchor-name: --btn-top"&gt;
+  Этот тултип показывается сверху... или снизу?!
+&lt;/div&gt;
+                </pre>
+              </div>
+              <div class="code-example__block" data-lang="css">
+                <pre>
+.tooltip-hint-top {
+  position-area: top center;
+  position-try-fallbacks: top, bottom;
+}
+                </pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="row-wrapper">
+            <div class="button-wrapper">
+              <button class="button" type="button" style="--anchor-name: --btn-bottom">
+                Снизу
+              </button>
+            </div>
+
+            <div class="code-example flow">
+              <div class="code-example__block" data-lang="html">
+                <pre>
+&lt;button class="button" style="--anchor-name: --btn-bottom"&gt;
+  Снизу
+&lt;/button&gt;
+
+&lt;div class="tooltip-hint tooltip-hint-bottom" style="--anchor-name: --btn-bottom"&gt;
+  Этот тултип показывается снизу
+&lt;/div&gt;
+                </pre>
+              </div>
+              <div class="code-example__block" data-lang="css">
+                <pre>
+.tooltip-hint-bottom {
+  position-area: bottom center;
+}
+                </pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="row-wrapper">
+            <div class="button-wrapper">
+              <button class="button" type="button" style="--anchor-name: --btn-left">
+                Слева
+              </button>
+            </div>
+
+            <div class="code-example flow">
+              <div class="code-example__block" data-lang="html">
+                <pre>
+&lt;button class="button" style="--anchor-name: --btn-left"&gt;
+  Слева
+&lt;/button&gt;
+
+&lt;div class="tooltip-hint tooltip-hint-left" style="--anchor-name: --btn-left"&gt;
+  Этот тултип показывается слева
+&lt;/div&gt;
+                </pre>
+              </div>
+              <div class="code-example__block" data-lang="css">
+                <pre>
+.tooltip-hint-left {
+  position-area: left center;
+}
+                </pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="row-wrapper">
+            <div class="button-wrapper">
+              <button class="button" type="button" style="--anchor-name: --btn-right">
+                Справа
+              </button>
+            </div>
+
+            <div class="code-example flow">
+              <div class="code-example__block" data-lang="html">
+                <pre>
+&lt;button class="button" style="--anchor-name: --btn-right"&gt;
+  Справа
+&lt;/button&gt;
+
+&lt;div class="tooltip-hint tooltip-hint-right" style="--anchor-name: --btn-right"&gt;
+  Этот тултип показывается сверху
+&lt;/div&gt;
+                </pre>
+              </div>
+              <div class="code-example__block" data-lang="css">
+                <pre>
+.tooltip-hint-right {
+  position-area: right center;
+}
+                </pre>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="code-example flow">
+          <div class="code-example__block" data-lang="css">
+            <pre>
+.button {
+  &::after {
+    anchor-name: var(--anchor-name);
+    visibility: hidden;
+  }
+
+  &:hover,
+  &:focus-visible {
+    &::after {
+      visibility: visible;
+    }
+  }
+}
+
+.tooltip-hint {
+  position: absolute;
+  position-anchor: var(--anchor-name);
+  position-visibility: anchors-visible;
+}
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Anchors -->
+
+    <div class="tooltip-hint tooltip-hint-top" style="--anchor-name: --btn-top">
+      Этот тултип показывается сверху... или снизу?!
+    </div>
+
+    <div class="tooltip-hint tooltip-hint-bottom" style="--anchor-name: --btn-bottom">
+      Этот тултип показывается снизу
+    </div>
+
+    <div class="tooltip-hint tooltip-hint-left" style="--anchor-name: --btn-left">
+      Этот тултип показывается слева
+    </div>
+
+    <div class="tooltip-hint tooltip-hint-right" style="--anchor-name: --btn-right">
+      Этот тултип показывается справа
+    </div>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

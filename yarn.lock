@@ -743,8 +743,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@te-meetup/css-anchor@workspace:projects/css-anchor"
   dependencies:
+    "@fontsource/inter": "npm:^5.1.0"
     "@te-meetup/eslint-config": "workspace:^"
     eslint: "npm:^9.17.0"
+    shiki: "npm:^1.24.2"
     typescript: "npm:^5.7.2"
     typescript-eslint: "npm:^8.18.0"
     vite: "npm:^6.0.3"

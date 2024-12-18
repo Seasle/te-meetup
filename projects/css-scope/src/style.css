@@ -20,57 +20,20 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-
-  #card-1 {
-    order: 1;
-
-    :has(&:hover, &:focus):not(:has(#card-2:focus, #card-3:focus)) #code-1 {
-      display: flex;
-    }
-  }
-
-  #card-2 {
-    order: 3;
-
-    :has(&:hover, &:focus):not(:has(#card-1:focus, #card-3:focus)) #code-2 {
-      display: flex;
-    }
-  }
-
-  #card-3 {
-    order: 5;
-
-    :has(&:hover, &:focus):not(:has(#card-1:focus, #card-2:focus)) #code-3 {
-      display: flex;
-    }
-  }
-
-  #code-1 {
-    display: none;
-    order: 2;
-  }
-
-  #code-2 {
-    display: none;
-    order: 4;
-  }
-
-  #code-3 {
-    display: none;
-    order: 6;
-  }
+  align-items: center;
 }
 
-.cards {
+.columns-3 {
   gap: 48px;
   display: grid;
-  grid-template-columns: repeat(3, 240px);
-  justify-content: center;
-  align-items: center;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 
-  @media (max-width: 1024px) {
-    display: contents;
-  }
+.wrapper {
+  gap: 48px;
+  display: grid;
+  grid-template-columns: 320px 640px;
+  place-items: start stretch;
 }
 
 .card {
@@ -98,7 +61,6 @@ body {
   padding: 20px;
   gap: 20px;
   border-radius: 6px;
-  grid-column: 1 / -1;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;

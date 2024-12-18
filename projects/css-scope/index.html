@@ -8,13 +8,25 @@
   </head>
   <body>
     <div id="app">
-      <div class="cards">
+      <div class="wrapper">
         <div class="card" id="card-1" tabindex="0">
           <p class="card__text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, magnam vitae! Molestiae quo ex
             molestias consequuntur accusantium excepturi autem aut maxime eveniet exercitationem amet laboriosam, quam
             voluptatem veritatis cupiditate? Quae?</p>
         </div>
 
+        <div class="code-example" id="code-1">
+          <div class="code-example__block" data-lang="css">
+            <pre>
+.card__text {
+  background-color: rgba(from #d4e3ac r g b / 50%);
+}
+            </pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrapper">
         <div class="card" id="card-2" tabindex="0">
           <style>
             @scope {
@@ -27,33 +39,16 @@
             ducimus porro, asperiores odio totam non ipsa. Reprehenderit quod a hic enim non quaerat illo nesciunt rem?</p>
         </div>
 
-        <div class="card" id="card-3" tabindex="0">
-          <p class="card__text">Suscipit excepturi modi itaque nulla maxime nisi vero. Ipsa accusantium error minus quibusdam
-            excepturi provident atque. Velit numquam nesciunt excepturi id, nihil fugiat, laboriosam voluptates beatae nostrum
-            architecto officiis enim?</p>
-        </div>
-        </div>
-
-      <div class="code-example" id="code-1">
-        <div class="code-example__block" data-lang="css">
-          <pre>
+        <div class="code-example" id="code-2">
+          <div class="code-example__block" data-lang="css">
+            <pre>
 .card__text {
   background-color: rgba(from #d4e3ac r g b / 50%);
 }
-          </pre>
-        </div>
-      </div>
-
-      <div class="code-example" id="code-2">
-        <div class="code-example__block" data-lang="css">
-          <pre>
-.card__text {
-  background-color: rgba(from #d4e3ac r g b / 50%);
-}
-          </pre>
-        </div>
-        <div class="code-example__block" data-lang="html">
-          <pre>
+            </pre>
+          </div>
+          <div class="code-example__block" data-lang="html">
+            <pre>
 &lt;div class="card"&gt;
   &lt;style&gt;
     @scope {
@@ -63,13 +58,21 @@
     }
   &lt;/style&gt;
 &lt;/div&gt;
-          </pre>
+            </pre>
+          </div>
         </div>
       </div>
 
-      <div class="code-example" id="code-3">
-        <div class="code-example__block" data-lang="css">
-          <pre>
+      <div class="wrapper">
+        <div class="card" id="card-3" tabindex="0">
+          <p class="card__text">Suscipit excepturi modi itaque nulla maxime nisi vero. Ipsa accusantium error minus quibusdam
+            excepturi provident atque. Velit numquam nesciunt excepturi id, nihil fugiat, laboriosam voluptates beatae nostrum
+            architecto officiis enim?</p>
+        </div>
+
+        <div class="code-example" id="code-3">
+          <div class="code-example__block" data-lang="css">
+            <pre>
 .card__text {
   background-color: rgba(from #d4e3ac r g b / 50%);
 }
@@ -79,7 +82,8 @@
     background-color: rgba(from #fcd3a9 r g b / 50%);
   }
 }
-          </pre>
+            </pre>
+          </div>
         </div>
       </div>
     </div>

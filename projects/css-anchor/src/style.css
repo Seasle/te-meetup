@@ -15,10 +15,14 @@
   --N-80: #95a0b3;
   --N-300: #505f79;
   --N-900: #222a37;
+
+  --G-50: #f4f9e6;
+  --G-600: #97ba1e;
+  --G-800: #81a11a;
+  --G-900: #547012;
 }
 
 body {
-  min-height: 1000vh;
   margin: 0;
   background-color: var(--N-40);
 }
@@ -32,6 +36,7 @@ body {
   }
 
   .tooltip-demo {
+    margin-bottom: 75vh;
     gap: 20px;
     display: grid;
     grid-template-columns: minmax(0, 1fr) 480px;
@@ -90,7 +95,7 @@ body {
         border-radius: 6px;
         font-size: 14px;
         text-transform: uppercase;
-        background-color: #505f79;
+        background-color: var(--N-300);
         color: #ffffff;
         content: attr(data-lang);
       }
@@ -98,6 +103,36 @@ body {
 
     pre {
       margin: 0;
+    }
+
+    .interactive-line {
+      transition: opacity 0.25s ease-in-out;
+
+      :has([value='interactive']:checked) & {
+        opacity: 1;
+      }
+
+      :has([value='always-visible']:checked) & {
+        opacity: 0.2;
+      }
+    }
+  }
+
+  .form {
+    gap: 24px;
+    display: flex;
+    flex-wrap: wrap;
+
+    .form-element {
+      gap: 12px;
+      display: flex;
+      align-items: center;
+    }
+
+    .form-label {
+      font-size: 16px;
+      line-height: 22px;
+      color: var(--N-900);
     }
   }
 }
@@ -172,6 +207,50 @@ body {
     background-color: var(--N-300);
     color: var(--W-100);
   }
+
+  .radio-button {
+    --background-color: var(--W-100);
+    --border-color: var(--N-80);
+
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    border: 1px solid var(--border-color);
+    box-sizing: border-box;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    appearance: none;
+    transition-property: background-color, border-color, border-width;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+
+    &:not(:checked) {
+      &:hover,
+      &:focus-visible {
+        --border-color: var(--G-600);
+      }
+
+      &:active {
+        --background-color: var(--G-50);
+        --border-color: var(--G-800);
+      }
+    }
+
+    &:checked {
+      --border-color: var(--G-600);
+
+      border-width: 5px;
+
+      &:hover,
+      &:focus-visible {
+        --border-color: var(--G-800);
+      }
+
+      &:active {
+        --border-color: var(--G-900);
+      }
+    }
+  }
 }
 
 @layer demo {
@@ -181,16 +260,21 @@ body {
 
     &::after {
       position: absolute;
-      inset: 0;
-      /* visibility: hidden; */
+      inset: -1px;
       anchor-name: var(--anchor-name);
       content: '';
     }
 
-    &:hover,
-    &:focus-visible {
+    :has([value='interactive']:checked) & {
       &::after {
-        visibility: visible;
+        visibility: hidden;
+      }
+
+      &:hover,
+      &:focus-visible {
+        &::after {
+          visibility: visible;
+        }
       }
     }
   }
@@ -198,25 +282,29 @@ body {
   .tooltip-hint {
     position: absolute;
     position-anchor: var(--anchor-name);
-    position-visibility: anchors-visible;
+
+    :has([value='interactive']:checked) & {
+      position-visibility: anchors-visible;
+    }
 
     &.tooltip-hint-top {
       position-area: top center;
-      position-try-fallbacks: top, bottom;
-    }
-
-    &.tooltip-hint-bottom {
-      width: anchor-size(var(--anchor-name) width);
-      position-area: bottom right;
     }
 
     &.tooltip-hint-left {
-      height: anchor-size(var(--anchor-name) height);
+      width: anchor-size(var(--anchor-name) width);
       position-area: left center;
     }
 
     &.tooltip-hint-right {
-      position-area: right center;
+      height: anchor-size(var(--anchor-name) height);
+      position-area: right top;
+    }
+
+    &.tooltip-hint-bottom {
+      width: calc(anchor-size(var(--anchor-name) width) * 2);
+      position-area: bottom center;
+      position-try-fallbacks: bottom, top;
     }
   }
 }

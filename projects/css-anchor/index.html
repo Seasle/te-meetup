@@ -25,7 +25,7 @@
 &lt;/button&gt;
 
 &lt;div class="tooltip-hint tooltip-hint-top" style="--anchor-name: --btn-top"&gt;
-  Этот тултип показывается сверху... или снизу?!
+  Этот тултип показывается сверху
 &lt;/div&gt;
                 </pre>
               </div>
@@ -33,36 +33,6 @@
                 <pre>
 .tooltip-hint-top {
   position-area: top center;
-  position-try-fallbacks: top, bottom;
-}
-                </pre>
-              </div>
-            </div>
-          </div>
-
-          <div class="row-wrapper">
-            <div class="button-wrapper">
-              <button class="button" type="button" style="--anchor-name: --btn-bottom">
-                Снизу
-              </button>
-            </div>
-
-            <div class="code-example flow">
-              <div class="code-example__block" data-lang="html">
-                <pre>
-&lt;button class="button" style="--anchor-name: --btn-bottom"&gt;
-  Снизу
-&lt;/button&gt;
-
-&lt;div class="tooltip-hint tooltip-hint-bottom" style="--anchor-name: --btn-bottom"&gt;
-  Этот тултип показывается снизу
-&lt;/div&gt;
-                </pre>
-              </div>
-              <div class="code-example__block" data-lang="css">
-                <pre>
-.tooltip-hint-bottom {
-  position-area: bottom center;
 }
                 </pre>
               </div>
@@ -84,13 +54,14 @@
 &lt;/button&gt;
 
 &lt;div class="tooltip-hint tooltip-hint-left" style="--anchor-name: --btn-left"&gt;
-  Этот тултип показывается слева
+  Этот тултип показывается слева, а ещё он в ширину самой кнопки
 &lt;/div&gt;
                 </pre>
               </div>
               <div class="code-example__block" data-lang="css">
                 <pre>
 .tooltip-hint-left {
+  width: anchor-size(var(--anchor-name) width);
   position-area: left center;
 }
                 </pre>
@@ -113,14 +84,46 @@
 &lt;/button&gt;
 
 &lt;div class="tooltip-hint tooltip-hint-right" style="--anchor-name: --btn-right"&gt;
-  Этот тултип показывается сверху
+  Этот тултип показывается справа сверху и равен высоте кнопки
 &lt;/div&gt;
                 </pre>
               </div>
               <div class="code-example__block" data-lang="css">
                 <pre>
 .tooltip-hint-right {
-  position-area: right center;
+  height: anchor-size(var(--anchor-name) height);
+  position-area: right top;
+}
+                </pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="row-wrapper">
+            <div class="button-wrapper">
+              <button class="button" type="button" style="--anchor-name: --btn-bottom">
+                Снизу
+              </button>
+            </div>
+
+            <div class="code-example flow">
+              <div class="code-example__block" data-lang="html">
+                <pre>
+&lt;button class="button" style="--anchor-name: --btn-bottom"&gt;
+  Снизу
+&lt;/button&gt;
+
+&lt;div class="tooltip-hint tooltip-hint-bottom" style="--anchor-name: --btn-bottom"&gt;
+  А у этого тултипа очень много текста. Он показывается снизу, под самой кнопкой... Или не снизу?!
+&lt;/div&gt;
+                </pre>
+              </div>
+              <div class="code-example__block" data-lang="css">
+                <pre>
+.tooltip-hint-bottom {
+  width: calc(anchor-size(var(--anchor-name) width) * 2);
+  position-area: bottom center;
+  position-try-fallbacks: bottom, top;
 }
                 </pre>
               </div>
@@ -129,9 +132,10 @@
 
         </div>
 
-        <div class="code-example flow">
-          <div class="code-example__block" data-lang="css">
-            <pre>
+        <div class="flow">
+          <div class="code-example flow" >
+            <div class="code-example__block" data-lang="css" data-code-variant="shared">
+              <pre>
 .button {
   &::after {
     anchor-name: var(--anchor-name);
@@ -151,7 +155,19 @@
   position-anchor: var(--anchor-name);
   position-visibility: anchors-visible;
 }
-            </pre>
+              </pre>
+            </div>
+          </div>
+
+          <div class="form">
+            <label class="form-element">
+              <input class="radio-button" type="radio" name="tooltip-mode" value="interactive" checked>
+              <span class="form-label">Видно при ховере</span>
+            </label>
+            <label class="form-element">
+              <input class="radio-button" type="radio" name="tooltip-mode" value="always-visible">
+              <span class="form-label">Видно всегда</span>
+            </label>
           </div>
         </div>
       </div>
@@ -160,19 +176,19 @@
     <!-- Anchors -->
 
     <div class="tooltip-hint tooltip-hint-top" style="--anchor-name: --btn-top">
-      Этот тултип показывается сверху... или снизу?!
-    </div>
-
-    <div class="tooltip-hint tooltip-hint-bottom" style="--anchor-name: --btn-bottom">
-      Этот тултип показывается снизу
+      Этот тултип показывается сверху
     </div>
 
     <div class="tooltip-hint tooltip-hint-left" style="--anchor-name: --btn-left">
-      Этот тултип показывается слева
+      Этот тултип показывается слева, а ещё он в ширину самой кнопки
     </div>
 
     <div class="tooltip-hint tooltip-hint-right" style="--anchor-name: --btn-right">
-      Этот тултип показывается справа
+      Этот тултип показывается справа сверху и равен высоте кнопки
+    </div>
+
+    <div class="tooltip-hint tooltip-hint-bottom" style="--anchor-name: --btn-bottom">
+      А у этого тултипа очень много текста. Он показывается снизу, под самой кнопкой... Или не снизу?!
     </div>
 
     <script type="module" src="/src/main.ts"></script>

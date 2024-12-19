@@ -12,7 +12,8 @@
 
 body {
   margin: 0;
-  min-height: 100vh;
+  zoom: 1.5;
+  background-color: #eceff5;
 }
 
 #app {
@@ -28,7 +29,7 @@ body {
     margin: 0;
     padding: 12px;
     gap: 12px;
-    border: 1px solid #eceff5;
+    border: 1px solid color-mix(in srgb, #95a0b3 50%, transparent);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -41,6 +42,7 @@ body {
       font-size: 14px;
       line-height: 18px;
       letter-spacing: 0.15px;
+      background-color: #ffffff;
       color: #505f79;
     }
   }
@@ -76,6 +78,7 @@ body {
 
 .control {
   height: 48px;
+  border-radius: 6px;
   display: flex;
   background-color: #ffffff;
 
@@ -127,6 +130,7 @@ body {
     margin-block-start: 22px;
     padding-inline: 12px;
     border: none;
+    border-radius: 6px;
     flex-grow: 1;
     font-family: inherit;
     font-size: 16px;

@@ -808,7 +808,7 @@ __metadata:
     eslint-plugin-react-refresh: "npm:^0.4.16"
     react: "npm:^19.0.0"
     react-dom: "npm:^19.0.0"
-    react-router: "npm:^7.0.2"
+    react-router: "npm:^7.5.2"
     typescript: "npm:^5.7.2"
     typescript-eslint: "npm:^8.18.0"
     vite: "npm:^6.0.15"
@@ -835,13 +835,6 @@ __metadata:
     vite: "npm:^6.0.15"
   languageName: unknown
   linkType: soft
-
-"@types/cookie@npm:^0.6.0":
-  version: 0.6.0
-  resolution: "@types/cookie@npm:0.6.0"
-  checksum: 10c0/5b326bd0188120fb32c0be086b141b1481fec9941b76ad537f9110e10d61ee2636beac145463319c71e4be67a17e85b81ca9e13ceb6e3bb63b93d16824d6c149
-  languageName: node
-  linkType: hard
 
 "@types/estree@npm:1.0.7":
   version: 1.0.7
@@ -2616,11 +2609,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router@npm:^7.0.2":
-  version: 7.0.2
-  resolution: "react-router@npm:7.0.2"
+"react-router@npm:^7.5.2":
+  version: 7.5.3
+  resolution: "react-router@npm:7.5.3"
   dependencies:
-    "@types/cookie": "npm:^0.6.0"
     cookie: "npm:^1.0.1"
     set-cookie-parser: "npm:^2.6.0"
     turbo-stream: "npm:2.4.0"
@@ -2630,7 +2622,7 @@ __metadata:
   peerDependenciesMeta:
     react-dom:
       optional: true
-  checksum: 10c0/f6c04939218a3d7f2b03b215c2299eab4dbb0dea4a16e0acfd8bf181ec69ff42d66abdba10a25cc3297c514f052a0d03bfb80431225eb763bb27e4e5b0b4a106
+  checksum: 10c0/1f98ab5974cbf6696944a3cbe3d5708add6cdb9c765e0952459eb912d388fe361914a94557546dcd45164413fd9bc2fde97302c8daf3951156644232a9e3ce16
   languageName: node
   linkType: hard
 
